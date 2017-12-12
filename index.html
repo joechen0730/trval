@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="data.js"></script>
+    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="phone.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @media screen and (min-width:1200px) { 
+        /*gobla setting*/                   
+        * {
+            font-family: '微軟正黑體', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1;
+        }
+        
+        .container {
+            width: 100%;
+        }
+        
+        .wrapper {
+            width: 1200px;
+            margin: auto;
+            border: 1px solid #B9EDF8;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            flex-wrap: nowrap;
+            word-wrap: break-word;
+        }
+        
+        .wrapper h2 {
+            text-align: center;
+            padding: 20px;
+            font-size: 35px;
+            color: #5E7CE2;
+            font-style: italic;
+        }
+        
+        .col-2 {
+            width: calc(1100px/2);
+            height: 320px;
+            float: left;
+            margin: auto;
+            margin-left: 30px;
+            border: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        
+        .clearfix:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+        /********************************/
+        /*********header**********/
+        
+        .header {
+            width: 100%;
+            height: 400px;
+            background: url(Hero.png) no-repeat;
+            background-size: 100% 100%;
+            text-align: center;
+        }
+        
+        .title {
+            font-size: 2em;
+            color: #fff;
+            font-weight: 100;
+            letter-spacing: 12px;
+            padding-top: 100px;
+        }
+        
+        .list {
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 10px;
+            border: 3px solid #fff;
+            width: 880px;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        /************************/
+        /*********nav***********/
+        
+        .nav {
+            margin: auto;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: -80px;
+            width: 1200px;
+            background-color: #fff;
+            box-shadow: 5px 5px 5px #888888;
+            opacity: .8;
+        }
+        
+        .nav p {
+            margin-top: -10px;
+            text-shadow: 1px 1px 2px #777;
+            text-align: center;
+            font-size: 30px;
+            color: blue;
+            background-clip: text;
+            background: -webkit-linear-gradient(top, red 0, blue 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav ul {
+            list-style-type: none;
+        }
+        
+        .nav li {
+            display: inline-block;
+            width: calc(90%/4);
+            margin: auto;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 5px;
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.8s;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            padding: 10px 30px 10px 30px;
+            border-radius: 10px;
+            opacity: 1;
+        }
+        
+        .nav ul li:nth-child(1) {
+            background-color: #177E89;
+            color: #fff;
+        }
+        
+        .nav ul li:nth-child(2) {
+            background-color: #084C61;
+            color: #fff;
+        }
+        
+        .nav ul li:nth-child(3) {
+            background-color: #DB3A34;
+            color: #fff;
+        }
+        
+        .nav ul li:nth-child(4) {
+            background-color: #D09924;
+            color: #fff;
+        }
+        
+        li:hover {
+            opacity: 0.7;
+        }
+        /******************************/
+        /*    section    */
+        
+        section {
+            text-align: center;
+            width: 90%;
+            margin: auto;
+            margin-top: 5em;
+        }
+        
+        .down {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            padding: 30px;
+            border-top: 2px dashed #5E7CE2;
+        }
+        
+        .icon {
+            position: absolute;
+            background: url(assets/icons_down.png) no-repeat;
+            background-position: center center;
+            width: 25px;
+            height: 25px;
+            padding: 10px;
+            border: 2px solid #5E7CE2;
+            border-radius: 50px;
+            margin: auto;
+            top: -55px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        /***************/
+        /*wrapper*/
+        
+        .BgPhoto {
+            width: 100%;
+            height: 190px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .BgPhoto img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            opacity: .9;
+        }
+        
+        .BgPhoto h2 {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            color: #E1E7EB;
+            font-weight: 900;
+        }
+        
+        .BgPhoto h3 {
+            position: absolute;
+            bottom: 1em;
+            right: 1em;
+            color: #fff;
+        }
+        
+        .info {
+            width: 100%;
+            position: relative;
+        }
+        
+        .info-icon {
+            width: 80%;
+            margin-top: 5px;
+            padding: 5px;
+            padding-left: 20px;
+            line-height: 2;
+        }
+        
+        .info p {
+            font-weight: bold;
+        }
+        
+        .info-icon img {
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        img[src="assets/icons_phone.png"] {
+            padding-left: 14px;
+        }
+        
+        .visit {
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            width: 120px;
+            vertical-align: bottom;
+        }
+        
+        .visit .btn {
+            font-size: 15px;
+            font-weight: bold;
+            box-shadow: 2px 0 5px #888888;
+            margin-left: 5px;
+            padding: 8px;
+            background-color: #BEF7E4;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: .6;
+            transition: opacity 0.8s;
+        }
+        
+        .btn:hover {
+            opacity: 1;
+        }
+        /*************/
+        /*footer*/
+        
+        footer {
+            width: 100%;
+            background-color: #92B4F4;
+            opacity: .8;
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        footer h3 {
+            line-height: 30px;
+            color: red;
+            opacity: 1;
+        }
+        /**********/
+        /*mask*/
+        
+        .mask {
+            position: fixed;
+            opacity: .6;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #130D0A;
+            z-index: 100;
+        }
+        
+        .showdata {
+            position: absolute;
+            width: 800px;
+            background-color: #F5E5FC;
+            z-index: 101;
+            top: 100px;
+            left: 50%;
+            margin-left: -400px;
+            transition: opacity 0.5s;
+        }
+        
+        .showHead {
+            width: 100%;
+            background-color: #CED3DC;
+        }
+        
+        .showdata h2 {
+            font-weight: bold;
+            text-shadow: 2px 2px 3px #424242;
+            text-align: center;
+            padding: 20px;
+            font-size: 35px;
+            color: #48B8D0;
+        }
+        
+        .close {
+            float: right;
+            color: #424242;
+            transition: color 0.6s;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #eee;
+        }
+        
+        .dataImg {
+            width: 650px;
+            margin: 20px auto 0 auto;
+        }
+        
+        .dataImg img {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: block;
+        }
+        
+        .blog {
+            width: 650px;
+            margin: auto;
+            font-weight: bold;
+            
+            padding-bottom: 10px;
+        }
+        
+        .blog p {
+            margin-top: 20px;
+            line-height: 2em;
+        }
+    }
+        /********/
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="title">
+
+            <h1>高雄旅遊資訊</h1>
+        </div>
+        <select name="" class="list">
+            <option >--請選擇行政區域--</option>
+              <option value="高雄市">高雄市</option>
+             <option value="內門區">內門區</option>
+              <option value="左營區">左營區</option>
+              <option value="田寮區">田寮區</option>
+              <option value="永安區">永安區</option>
+              <option value="甲仙區">甲仙區</option>
+              <option value="鼓山區">鼓山區</option>
+              <option value="杉林區">杉林區</option>
+              <option value="六龜區">六龜區</option>
+              <option value="那瑪夏">那瑪夏</option>
+              <option value="岡山區">岡山區</option>
+              <option value="美濃區">美濃區</option>
+              <option value="三民區">三民區</option>
+              <option value="前鎮區">前鎮區</option>
+              <option value="新興區">新興區</option>
+              <option value="苓雅區">苓雅區</option>
+              <option value="茂林區">茂林區</option>
+              <option value="茄萣區">茄萣區</option>
+              <option value="梓官區">梓官區</option>
+              <option value="旗津區">旗津區</option>
+              <option value="桃源區">桃源區</option>
+              <option value="楠梓區">楠梓區</option>
+              <option value="前金區">前金區</option>
+              <option value="鳳山區">鳳山區</option>
+        </select>
+    </div>
+
+    <div class="contianer">
+        <div class="nav clearfix">
+            <p>熱門行政區</p>
+            <ul class="navbar">
+                <li title="苓雅區">苓雅區</li>
+                <li title="三民區">三民區</li>
+                <li title="新興區">新興區</li>
+                <li title="甲仙區">甲仙區</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <section>
+            <div class="down">
+                <div class="icon"></div>
+            </div>
+
+        </section>
+        <div class="wrapper clearfix" id="menu">
+            <h2>想去哪? 就選它吧，我們會將訊息內容展示於此</h2>
+            <!--預設內容-->
+            <!--  
+            <div class="col-2 ">
+                <div class="BgPhoto">
+                   <img src="http://khh.travel/FileArtPic.ashx?id=988&w=1280&h=960" alt="#">
+                    <h2>義永寺</h2>
+                    <h3>三民區</h3>
+                </div>
+                <div class="info clearfix">
+                    <div class="info-icon">
+                        <p><img src="assets/icons_clock.png" alt="">全天開放候補</p>
+                    </div>
+                    <div class="info-icon">
+                        <p><img src="assets/icons_pin.png" alt="">全天開放候補</p>
+                    </div>
+                    <div class="info-icon">
+                        <p><img src="assets/icons_phone.png" alt="">全天開放候補</p>
+                    </div>
+                    <div class="visit"><img src="assets/icons_tag.png" alt=""><button class="btn">詳細資訊</button></div>
+                </div>
+            </div>
+-->
+
+        </div>
+
+        <footer>
+            <h3>高雄旅遊網</h3>
+            <h4>資料來源:高雄市政府</h4>
+        </footer>
+        <div class="show">
+            <!--預設內容-->
+            <!--
+        <div class="mask"></div>
+        <div class="showdata clearfix">
+            <div class="showHead">
+                <h2>三民區<div class="close">x</div></h2>
+
+            </div>
+            <div class="dataImg">
+                <img src="http://khh.travel/FileArtPic.ashx?id=705&w=1280&h=960" alt="">
+            </div>
+            <div class="blog">
+                <p>所在地點: Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>開放時間: Lorem ipsum dolor sit amet.</p>
+                <p>連絡電話: Lorem ipsum dolor sit. </p>
+                <p>地貌簡介: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae error, consequatur fuga quasi voluptatibus impedit, culpa veniam repudiandae deleniti, ex numquam non eius excepturi, porro eos dolores odio. Illo nobis nesciunt, enim ad corrupti mollitia libero tempore deserunt quis debitis harum fuga, provident id optio, inventore fugit totam atque ea consequatur ratione! Cumque veritatis quia nobis ipsam nemo aliquam quibusdam perspiciatis, voluptatum minima ipsa totam beatae iusto molestias nisi. Perferendis magnam libero nesciunt, ipsa assumenda optio at, dicta maiores vero porro quo minima quisquam itaque aperiam possimus dolorum dolorem obcaecati! Nihil tempora natus ipsum vitae quisquam facere repellendus! Voluptatibus, eum? </p>
+            </div>
+        </div>
+-->
+        </div>
+
+
+    </div>
+
+    <script>
+        var show = document.querySelector(".show");
+        var navbar = document.querySelector(".navbar");
+        var showdata = document.querySelector(".showdata");
+        var wrapper = document.querySelector(".wrapper");
+        var list = document.querySelector(".list");
+
+        list.addEventListener("change", detail);
+        navbar.addEventListener("click", navdata);
+
+        var len = data.length;
+        //切換option
+        function detail(e) {
+            str = "";
+            innerData = "";
+            var area = e.target.value;
+            for (var i = 0; i < len; i++) {
+                if (area == data[i].Zone) {
+                    place = "<h2>" + data[i].Zone + "</h2>";
+                    str += "<div class='col-2'><div class='BgPhoto' ><img src='" + data[i].Picture1 + "' alt='#'><h2>" + data[i].Name + "</h2><h3>" + data[i].Zone + "</h3></div>         <div class='info'> <div class='info-icon'><p><img src='assets/icons_clock.png' alt='#'>" + data[i].Opentime + "</p></div>                                   <div class='info-icon'><p><img src='assets/icons_pin.png' alt='#'>" + data[i].Add + "</p></div>                                                             <div class='info-icon'><p><img src='assets/icons_phone.png' alt='#'>" + data[i].Tel + "</p></div>                                                           <div class='visit'><img src='assets/icons_tag.png' alt='#'><button class='btn' title=" + data[i].Name + ">詳細資訊</button></div>  </div></div>"
+                }
+            }
+
+            wrapper.innerHTML = place + str;
+            //取得btn
+            var btn = document.querySelectorAll("#menu .btn");
+            var btnLen = btn.length;
+
+            //迴圈 註冊事件給btn
+            for (var i = 0; i < btnLen; i++) {
+                btn[i].addEventListener("click", opendata)
+            }
+
+            function opendata(e) {
+                var name = e.target.title;
+                console.log(name);
+                for (var i = 0; i < data.length; i++) {
+                    if (name == data[i].Name) { //使用景點名子做判斷
+                        innerData += "<div class='mask'></div>"
+                        innerData +="<div class='showdata clearfix'><div class='showHead'><h2>" + data[i].Name + "<div class='close'>x</div></h2></div>"
+                        innerData +="<div class='dataImg'><img src='"+data[i].Picture1+"' alt='#'></div>"
+                        innerData +="<div class='blog'><p>所在地點:"+data[i].Add+"</p><p>開放時間:"+data[i].Opentime+"</p><p>連絡電話:"+data[i].Tel+"<p>地貌簡介:"+data[i].Description+"</p></div>"
+                        innerData +="</div>"
+                        show.innerHTML = innerData;
+                        //註冊closedata事件 關閉視窗
+                        var close = document.querySelector(".close"); 
+                        var mask = document.querySelector(".mask");
+                        close.addEventListener("click",closedata);
+                        mask.addEventListener("click",closedata);
+                    }
+                }
+            }
+
+                function closedata() {
+                 innerData="";
+                show.innerHTML=innerData;
+                }
+            //結束
+            
+        }
+
+
+        //點擊nav
+        function navdata(e) {
+            console.log(e.target.title);
+             innerData="";
+            str = "";
+            for (var i = 0; i < len; i++) {
+                if (e.target.title == data[i].Zone) {
+                    place = "<h2>" + data[i].Zone + "</h2>";
+                    str += "<div class='col-2'><div class='BgPhoto' ><img src='" + data[i].Picture1 + "' alt='#'><h2>" + data[i].Name + "</h2><h3>" + data[i].Zone + "</h3></div>         <div class='info'> <div class='info-icon'><p><img src='assets/icons_clock.png' alt='#'>" + data[i].Opentime + "</p></div>                                   <div class='info-icon'><p><img src='assets/icons_pin.png' alt='#'>" + data[i].Add + "</p></div>                                                             <div class='info-icon'><p><img src='assets/icons_phone.png' alt='#'>" + data[i].Tel + "</p></div>                                                           <div class='visit'><img src='assets/icons_tag.png' alt='#'><button class='btn' title=" + data[i].Name + ">詳細資訊</button></div>  </div></div>"
+                }
+            }
+            wrapper.innerHTML = place + str;
+
+            //取得btn
+            var btn = document.querySelectorAll("#menu .btn");
+            var btnLen = btn.length;
+ 
+            //迴圈 註冊事件給btn
+            for (var i = 0; i < btnLen; i++) {
+                btn[i].addEventListener("click", opendata)
+            }
+
+            function opendata(e) {
+                var name = e.target.title;
+                console.log(name);
+                for (var i = 0; i < data.length; i++) {
+                    if (name == data[i].Name) { //使用景點名子做判斷
+                        innerData += "<div class='mask'></div>"
+                        innerData +="<div class='showdata clearfix'><div class='showHead'><h2>" + data[i].Name + "<div class='close'>x</div></h2></div>"
+                        innerData +="<div class='dataImg'><img src='"+data[i].Picture1+"' alt='#'></div>"
+                        innerData +="<div class='blog'><p>所在地點:"+data[i].Add+"</p><p>開放時間:"+data[i].Opentime+"</p><p>連絡電話:"+data[i].Tel+"<p>地貌簡介:"+data[i].Description+"</p></div>"
+                        innerData +="</div>"
+                        show.innerHTML = innerData;
+                        //註冊closedata事件 關閉視窗
+                        var close = document.querySelector(".close"); 
+                        var mask = document.querySelector(".mask");
+                        close.addEventListener("click",closedata);
+                        mask.addEventListener("click",closedata);
+                    }
+                }
+            }
+                function closedata() {
+                 innerData="";
+                show.innerHTML=innerData;
+                }
+            //結束
+            
+            
+        }
+    </script>
+</body>
+
+</html>
